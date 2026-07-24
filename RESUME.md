@@ -1,4 +1,3 @@
-```markdown
 <!--
 ---
 template: portfolio-resume
@@ -84,6 +83,3 @@ No honors or awards were listed on the attached resume.
 **Technology:** Microsoft Excel, spreadsheet analysis, AI integrations  
 
 **Interests:** Finance, investing, entrepreneurship, business operations, market research, and professional networking  
-```
-
-The information above was taken from your attached resume. I left the addresses, GPA, and honors unfilled because they were not included in the document. 
