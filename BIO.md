@@ -1,4 +1,4 @@
-About Micah Yi
+# About Micah Yi
 
 Hello, my name is Micah Yi, and I am currently a senior at the University of Hawaiʻi at Mānoa, where I am majoring in Finance with a minor in Economics. Throughout my time at UH Mānoa, I have developed a strong interest in business, finance, entrepreneurship, and the hospitality industry. I enjoy learning how businesses operate, how financial markets influence the economy, and how strategic decision-making can help organizations grow and succeed. These interests have motivated me to pursue opportunities that allow me to gain both academic knowledge and practical experience.
 
