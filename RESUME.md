@@ -13,8 +13,8 @@ courses: [BUS-629, BUS-122B]
 
 **Email:** micahyi@gmail.com · **Phone:** (925) 854-8871  
 **LinkedIn:** linkedin.com/in/micahyi/  
-**School Address:** [Not provided]  
-**Permanent Address:** [Not provided]  
+**School Address:** 2500 Campus Rd, Honolulu, HI 96822
+**Permanent Address:** 1887 Hollyview Dr.
 
 ---
 
