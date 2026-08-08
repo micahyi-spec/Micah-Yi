@@ -155,3 +155,6 @@ Save the completed workbook as:
 models/builds/2026-08-07-Yi-eur-receivable-hedge-model.xlsx
 
 Do not change the model logic from the
+
+3. Make sure it is formatted correctly
+4. Correct and make sure each piece of data is accurate and use multiple reliable sources to check
