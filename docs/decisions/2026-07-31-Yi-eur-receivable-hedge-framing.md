@@ -1,11 +1,11 @@
-EUR Receivable Foreign Exchange Risk Assessment
+# EUR Receivable Foreign Exchange Risk Assessment
 
-Created by: Micah Yi
-Updated by: Micah Yi
-Date Created: 2026-07-31
-Date Updated: 2026-07-31
-Version: 0.1
-LLM Used: ChatGPT (GPT-5.5)
+**Created by:** Micah Yi
+**Updated by:** Micah Yi
+**Date Created:** 2026-07-31  
+**Date Updated:** 2026-08-07  
+**Version:** 0.1
+**LLM Used:** [Chat GPT (GPT-5.5)
 
 Executive Summary
 
