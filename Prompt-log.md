@@ -1551,3 +1551,109 @@ Prompts reproduced from the available conversation are identified as exact promp
 Some earlier interactions are reconstructed from the resulting project documents and project history because the complete verbatim chat text was not available when this final log was assembled. Those entries are identified as reconstructed rather than being presented as exact quotations.
 
 This distinction is intentional so that the prompt log does not claim that reconstructed wording is a verbatim historical prompt.
+
+---
+
+# Stage 4 — Market Data + Population
+
+## Prompt 42 — Provide the Full Stage 4 Assignment
+
+**Date:** 2026-08-07  
+**Tool:** ChatGPT  
+**Prompt Type:** Assignment requirements / market-data research  
+**Status:** Exact prompt supplied by user
+
+### Prompt
+
+> # Stage 4 — Market Data + Population
+>
+> **Weight: 12% of project**
+>
+> **Deliverables:** `data/…-market-data.md` + re-committed workbook
+>
+> Replace your placeholders with **live market data**, document exactly where every number came from, and confirm the model survives contact with reality.
+>
+> Retrieve, as of market close on the day you begin:
+>
+> - `S0_in` — EURUSD spot
+> - `R_USD`, `R_FC` — 1-year rates
+> - `F0_in` — 1-year forward, or compute the CIP-implied forward
+> - `K_PUT`, `K_CALL` — strikes at or near live spot
+> - `PREM_PUT`, `PREM_CALL` — keep scenario-given premiums
+> - `FC_AMT`, `T_DAYS` — from the scenario
+>
+> Then:
+>
+> 1. Write the market-data memo.
+> 2. Populate the workbook.
+> 3. Re-run the checks.
+> 4. Cross-check against the FX Hedging Lab.
+>
+> The CIP-implied forward formula is:
+>
+> `F0 = S0 × (1 + R_USD × T/360) / (1 + R_FC × T/360)`
+
+### Why I Used AI
+
+I supplied the full Stage 4 instructions so AI could help identify the required live market inputs, document provenance, populate the workbook, rerun the model checks, and prepare the required GitHub deliverables.
+
+### Result
+
+The Stage 4 workflow was organized around:
+
+1. Retrieving dated market inputs.
+2. Documenting every source and timestamp.
+3. Computing a CIP-implied forward when a directly comparable live forward quote was not available.
+4. Populating the existing workbook through the named input cells.
+5. Re-running all validation checks.
+6. Cross-checking the results with the FIN 321 FX Hedging Lab.
+7. Updating the prompt log.
+
+---
+
+## Prompt 43 — Complete Stage 4
+
+**Date:** 2026-08-07  
+**Tool:** ChatGPT  
+**Prompt Type:** Execution request  
+**Status:** Exact prompt
+
+### Prompt
+
+> complete
+
+### Why I Used AI
+
+After reviewing the Stage 4 requirements, I asked AI to complete the Stage 4 deliverables and workbook population.
+
+### AI-Assisted Work
+
+AI helped:
+
+- Research the dated EUR/USD spot rate.
+- Select a one-year USD interest-rate proxy.
+- Select a one-year EUR benchmark.
+- Compute the CIP-implied forward.
+- Set the put and call strikes at the live spot.
+- Retain the scenario-given option premiums.
+- Populate the Stage 4 workbook.
+- Re-run validation checks.
+- Create the market-data provenance memo.
+- Prepare a Stage 4 prompt-log addition.
+
+### Stage 4 Values Used
+
+```text
+FC_AMT    = 4,500,000 EUR
+S0_in     = 1.1535 USD/EUR
+F0_in     = 1.1662946810 USD/EUR
+R_USD     = 4.01%
+R_FC      = 2.884%
+T_DAYS    = 365
+K_PUT     = 1.1535
+PREM_PUT  = 0.0250
+K_CALL    = 1.1535
+PREM_CALL = 0.0250
+BASIS     = 360
+
+This distinction is intentional so that the prompt log does not claim that reconstructed wording is a verbatim historical prompt.
