@@ -1643,7 +1643,6 @@ AI helped:
 
 ### Stage 4 Values Used
 
-```text
 FC_AMT    = 4,500,000 EUR
 S0_in     = 1.1535 USD/EUR
 F0_in     = 1.1662946810 USD/EUR
@@ -1657,3 +1656,710 @@ PREM_CALL = 0.0250
 BASIS     = 360
 
 This distinction is intentional so that the prompt log does not claim that reconstructed wording is a verbatim historical prompt.
+---
+
+# Stage 5 — Independent LLM Analysis & Validation
+
+## Prompt 48 — Update the Top-Level GitHub README
+
+**Date:** 2026-08-14  
+**Tool:** ChatGPT / GitHub  
+**Prompt Type:** Repository documentation  
+**Status:** Exact project request
+
+### Prompt / Context
+
+> Create a pull request and change my README to include my updated bio, skills, fun facts, and career goals.
+
+### Purpose
+
+I used AI to revise the top-level repository README so that it presents a professional personal bio and makes the repository more portfolio-ready.
+
+### Result
+
+The README was expanded to include:
+
+- Personal introduction
+- Finance and Economics academic background
+- Skills
+- Software and tools
+- Fun facts
+- Career goals
+- GitHub project presentation
+
+---
+
+## Prompt 49 — Ask What Stage 5 Requires
+
+**Date:** 2026-08-14  
+**Tool:** ChatGPT  
+**Prompt Type:** Assignment clarification  
+**Status:** Exact assignment content supplied
+
+### Prompt
+
+> Read this and tell me what I need to do Stage 5 — LLM Analysis & Validation
+
+### Purpose
+
+I supplied the complete Stage 5 assignment instructions and asked AI to translate them into a simpler step-by-step workflow.
+
+### Result
+
+Stage 5 was organized into:
+
+1. Fresh independent LLM execution
+2. LLM vs. workbook comparison
+3. Hand verification
+4. Executive recommendation
+5. Spec retrospective
+6. Repository polish
+7. Final prompt-log update
+
+---
+
+## Prompt 50 — Independent Fresh LLM Analysis
+
+**Date:** 2026-08-14  
+**Tool:** ChatGPT (fresh conversation)  
+**Prompt Type:** Independent hedge analysis  
+**Status:** Exact prompt
+
+### Prompt
+
+> Using only the attached hedge specification and market-data memo, independently calculate the outcomes for the unhedged position, forward hedge, money-market hedge, put option hedge, and call option where applicable. Evaluate the strategies across representative terminal EUR/USD spot rates, explain the sensitivity of each strategy, and recommend the most appropriate hedge strategy for the firm. Show the calculations and assumptions used.
+
+### Documents Provided
+
+Only these two documents were supplied:
+
+1. `docs/specs/2026-08-07-Yi-eur-receivable-hedge-spec.md`
+2. `data/2026-08-07-Yi-market-data.md`
+
+### Important Control
+
+The workbook, previous calculations, and prior project conversations were not supplied.
+
+The LLM was not corrected or coached during the run.
+
+### Result
+
+The independent LLM calculated:
+
+- Unhedged outcomes
+- Forward proceeds
+- Three-step money-market hedge
+- Put-option outcomes
+- Sensitivity analysis
+- Covered-interest-parity check
+- Final hedge recommendation
+
+The LLM recommended the forward hedge.
+
+---
+
+## Prompt 51 — Convert Independent LLM Output to GitHub Markdown
+
+**Date:** 2026-08-14  
+**Tool:** ChatGPT  
+**Prompt Type:** GitHub formatting  
+**Status:** Exact prompt
+
+### Prompt
+
+> Write in Github code
+
+### Purpose
+
+The independent LLM output needed to be saved as a Markdown artifact in the repository.
+
+### Result
+
+The Stage 5 independent LLM output was formatted for:
+
+`analysis/2026-08-14-Yi-llm-output.md`
+
+---
+
+## Prompt 52 — Ask What to Do After the Independent Run
+
+**Date:** 2026-08-14  
+**Tool:** ChatGPT  
+**Prompt Type:** Workflow guidance  
+**Status:** Exact prompt
+
+### Prompt
+
+> What should I do next
+
+### Result
+
+The next required task was identified as comparing the independent LLM results against the Stage 4 Excel workbook and then completing the required hand verification.
+
+---
+
+## Prompt 53 — Compare Stage 4 Workbook Against LLM Results
+
+**Date:** 2026-08-14  
+**Tool:** ChatGPT  
+**Prompt Type:** Model validation  
+**Status:** Exact prompt
+
+### Prompt
+
+> Here is my Stage 4 Excel workbook please compare the results against the LLM results
+
+### Purpose
+
+I supplied the Excel workbook so the independent LLM results could be compared against the spreadsheet outputs.
+
+### Key Finding
+
+The uploaded workbook was still populated with Stage 2 placeholder values instead of the Stage 4 market-data inputs.
+
+Examples included:
+
+- Workbook `S0_in = 1.1000`
+- Stage 4 `S0_in = 1.1535`
+- Workbook `F0_in = 1.1000`
+- Stage 4 `F0_in = 1.1662946810`
+- Workbook `R_USD = 5.30%`
+- Stage 4 `R_USD = 4.01%`
+- Workbook `R_FC = 3.00%`
+- Stage 4 `R_FC = 2.884%`
+
+### Result
+
+The differences were initially diagnosed as workbook population errors rather than LLM arithmetic errors.
+
+---
+
+## Prompt 54 — Build the Required Comparison Table
+
+**Date:** 2026-08-14  
+**Tool:** ChatGPT  
+**Prompt Type:** Validation documentation  
+**Status:** Exact prompt
+
+### Prompt
+
+> Make the comparison table as needed with LLM result, workbook result, differences, Diagnosis: `Match`, `LLM error`, `Workbook error`, or `Spec ambiguity`. Afterwards let me know what I need to do hand calculations for and where to find it within each part.
+
+### Result
+
+The comparison used three representative terminal exchange-rate scenarios:
+
+- `-5%`
+- `0%`
+- `+5%`
+
+The following strategies were compared:
+
+- Unhedged
+- Forward
+- Money market
+- Put option
+- Call option where applicable
+
+The forward, money-market, put, and unhedged discrepancies were classified as:
+
+**Workbook error**
+
+The call treatment was later identified as:
+
+**Spec ambiguity**
+
+---
+
+## Prompt 55 — Verify, Diagnose, and Reconcile
+
+**Date:** 2026-08-14  
+**Tool:** ChatGPT  
+**Prompt Type:** Model reconciliation  
+**Status:** Exact prompt
+
+### Prompt
+
+> Please verify, diagnose, and reconcile, then let me know what I am missing and what to do in github
+
+### Purpose
+
+I asked AI to go beyond listing discrepancies and identify their causes, reconcile the correct results, and identify missing GitHub deliverables.
+
+### Result
+
+The validation identified:
+
+1. Stage 4 market data had been documented.
+2. The saved workbook still contained Stage 2 placeholders.
+3. The underlying hedge formulas were consistent.
+4. Applying the Stage 4 inputs reconciled the core LLM and workbook calculations.
+5. The actual saved workbook still needed to be repopulated before final submission.
+
+---
+
+## Prompt 56 — Complete Part 2
+
+**Date:** 2026-08-14  
+**Tool:** ChatGPT  
+**Prompt Type:** Stage 5 deliverable drafting  
+**Status:** Exact assignment request
+
+### Prompt
+
+> Part 2 — Comparison & hand verification
+>
+> 1. Comparison table: LLM's result vs. your workbook's result for each strategy — forward, MM, put, call, unhedged at 2–3 `S_T` points. Flag every discrepancy and diagnose it: LLM error, workbook error, or spec ambiguity?
+>
+> 2. Hand-verification table (≥3 outcomes, arithmetic shown): recompute by hand — calculator and named-range notation, no Excel:
+> - forward proceeds (`FC_AMT × F0_in`)
+> - the money-market hedge, all three steps
+> - one option outcome
+>
+> Complete this.
+
+### Result
+
+Part 2 was drafted with:
+
+- Initial comparison
+- Diagnosis
+- Reconciliation
+- Forward verification
+- Three-step money-market verification
+- Put-option verification
+
+---
+
+## Prompt 57 — Explain Formula Sources for Hand Verification
+
+**Date:** 2026-08-14  
+**Tool:** ChatGPT  
+**Prompt Type:** Hand verification  
+**Status:** Exact prompt
+
+### Prompt
+
+> Show the formulas and explain where numbers came from for the hand-calculations
+
+### Result
+
+The hand-verification section documented both the formula and source of each input.
+
+Examples:
+
+`FC_AMT = €4,500,000`
+
+Assigned project exposure.
+
+`S0_in = 1.1535`
+
+ECB EUR/USD reference rate.
+
+`R_USD = 4.01%`
+
+1-year U.S. Treasury proxy.
+
+`R_FC = 2.884%`
+
+12-month Euribor.
+
+`F0_in = 1.1662946810`
+
+Covered-interest-parity implied forward.
+
+---
+
+## Prompt 58 — Re-Supply the Full Stage 5 Goal and Deliverables
+
+**Date:** 2026-08-14  
+**Tool:** ChatGPT  
+**Prompt Type:** Requirements verification  
+**Status:** Exact assignment content supplied
+
+### Prompt / Context
+
+> Goal
+>
+> The capstone. Feed your Phase 2 spec and Phase 4 market-data memo — and nothing else — to a fresh LLM session and have it produce the complete hedge analysis independently. Then do what a professional does with any model output: verify it by hand, reconcile the differences, and only then make the recommendation.
+>
+> Part 1 — Independent LLM execution
+>
+> Part 2 — Comparison & hand verification
+>
+> Part 3 — Executive recommendation memo
+>
+> Part 4 — Spec retrospective & repo polish
+
+### Purpose
+
+The complete requirements were resupplied to make sure the final Stage 5 files matched the professor's capstone instructions.
+
+---
+
+## Prompt 59 — Create the Validation Document and Raw LLM File
+
+**Date:** 2026-08-14  
+**Tool:** ChatGPT  
+**Prompt Type:** Deliverable creation  
+**Status:** Exact prompt
+
+### Prompt
+
+> Complete the validation doc in a copy and pastable markdown first and then also the raw LLM output as a file
+
+### Result
+
+Two Stage 5 artifacts were prepared:
+
+`analysis/2026-08-14-Yi-eur-receivable-hedge-validation.md`
+
+`analysis/2026-08-14-Yi-llm-output.md`
+
+---
+
+## Prompt 60 — Request Validation Document in GitHub Code
+
+**Date:** 2026-08-14  
+**Tool:** ChatGPT  
+**Prompt Type:** GitHub formatting  
+**Status:** Exact prompt
+
+### Prompt
+
+> Make the Validation document in copy and past code format for github
+
+### Result
+
+The validation document was converted to GitHub-ready Markdown.
+
+---
+
+## Prompt 61 — Ask Exactly What to Paste Into GitHub
+
+**Date:** 2026-08-14  
+**Tool:** ChatGPT  
+**Prompt Type:** GitHub navigation / formatting  
+**Status:** Exact prompt
+
+### Prompt
+
+> what am I supposed to copy and paste into github code
+
+### Result
+
+AI clarified that the Markdown contents should be pasted into:
+
+`analysis/2026-08-14-Yi-eur-receivable-hedge-validation.md`
+
+and the separate raw LLM file should be uploaded to the same `analysis/` directory.
+
+---
+
+## Prompt 62 — Request Validation Document Again as GitHub Code
+
+**Date:** 2026-08-14  
+**Tool:** ChatGPT  
+**Prompt Type:** GitHub formatting  
+**Status:** Exact prompt
+
+### Prompt
+
+> Give me the validation doc as github code
+
+### Result
+
+The complete validation document was returned as Markdown.
+
+---
+
+## Prompt 63 — Identify Inconsistent Markdown Formatting
+
+**Date:** 2026-08-14  
+**Tool:** ChatGPT  
+**Prompt Type:** Formatting correction  
+**Status:** Exact prompt
+
+### Prompt
+
+> why is 2.5 through the validation conclusion not typed in the same way as part 1 through 2.4
+
+### Result
+
+The formatting inconsistency was identified and the later validation sections were rewritten using the same Markdown style.
+
+---
+
+## Prompt 64 — Reformat the Entire Validation Document Consistently
+
+**Date:** 2026-08-14  
+**Tool:** ChatGPT  
+**Prompt Type:** Markdown revision  
+**Status:** Exact prompt
+
+### Prompt
+
+> Now format it all the same and give me one large markdown for the validation doc
+
+### Result
+
+The full validation document was rebuilt into one consistent Markdown structure.
+
+---
+
+## Prompt 65 — Diagnose Broken GitHub Rendering
+
+**Date:** 2026-08-14  
+**Tool:** ChatGPT  
+**Prompt Type:** GitHub Markdown troubleshooting  
+**Status:** Exact prompt
+
+### Prompt
+
+> Why does it look like this when I copy and paste it into Github
+
+### Finding
+
+A Markdown code fence in the reconciliation section had not been closed.
+
+As a result, GitHub interpreted the later validation content as part of a code block.
+
+### Result
+
+The missing closing code fence was identified.
+
+---
+
+## Prompt 66 — Review the Current Raw LLM File Formatting
+
+**Date:** 2026-08-14  
+**Tool:** ChatGPT  
+**Prompt Type:** Markdown troubleshooting  
+**Status:** Exact prompt
+
+### Prompt
+
+> This is how my LLM looks
+
+### Finding
+
+Several Markdown table headers had lost their `|` column separators.
+
+Examples included malformed headings for:
+
+- Inputs and assumptions
+- Forward comparison
+- Sensitivity analysis
+
+### Result
+
+Correct table syntax was provided.
+
+---
+
+## Prompt 67 — Rebuild Validation to Match Raw LLM Style
+
+**Date:** 2026-08-14  
+**Tool:** ChatGPT  
+**Prompt Type:** Final validation formatting  
+**Status:** Exact prompt
+
+### Prompt
+
+> Match the style and start over and remake the validation doc using so the raw file works
+
+### Result
+
+The validation document was rebuilt to match the raw LLM file style:
+
+- Metadata table
+- Numbered headings
+- Simple Markdown
+- Standard tables
+- No nested fenced-code sections that could break rendering
+
+---
+
+# Stage 5 — Executive Recommendation
+
+## Prompt 68 — Supply Part 3 Executive Recommendation Requirements
+
+**Date:** 2026-08-14  
+**Tool:** ChatGPT  
+**Prompt Type:** Recommendation memo requirements  
+**Status:** Exact assignment content supplied
+
+### Prompt / Context
+
+> Part 3 — The executive recommendation memo
+>
+> 2–4 pages, to the CFO, insight over computation — the CFO already has the numbers.
+>
+> A. Exposure summary
+>
+> B. Hedge outcomes
+>
+> C. Sensitivity interpretation
+>
+> D. Recommendation
+>
+> E. Executive justification
+
+### Result
+
+A CFO-oriented recommendation memo was drafted using the validated Stage 4 results.
+
+---
+
+## Prompt 69 — Convert Executive Recommendation to GitHub Markdown
+
+**Date:** 2026-08-14  
+**Tool:** ChatGPT  
+**Prompt Type:** GitHub formatting  
+**Status:** Exact prompt
+
+### Prompt
+
+> Remake in Github code
+
+### Result
+
+The executive recommendation memo was formatted for:
+
+`docs/decisions/2026-08-14-Yi-eur-receivable-hedge-recommendation.md`
+
+### Recommendation
+
+The memo recommends a:
+
+**Forward hedge for the full €4,500,000 EUR receivable**
+
+with modeled settlement proceeds of approximately:
+
+`$5,248,326.06`
+
+---
+
+# Stage 5 — Repository Polish
+
+## Prompt 70 — Review the Current Top-Level README
+
+**Date:** 2026-08-14  
+**Tool:** ChatGPT  
+**Prompt Type:** Repository polish  
+**Status:** Exact prompt
+
+### Prompt
+
+> This is my current top-level README current (bio + a project section linking every stage artifact)
+
+### Result
+
+AI reviewed the README requirement and identified that the top-level file needed:
+
+- Updated bio
+- Skills
+- Career goals
+- FIN 321 project overview
+- Stage-by-stage artifact links
+- Final recommendation link
+- Prompt-log link
+
+---
+
+## Prompt 71 — Supply Current README and Request Final Update
+
+**Date:** 2026-08-14  
+**Tool:** ChatGPT  
+**Prompt Type:** README revision  
+**Status:** Exact prompt supplied with current README text
+
+### Prompt
+
+> This is my current readme
+
+The current README contained the personal bio, skills, fun facts, and career goals.
+
+### Requested Update
+
+The README was expanded to include a dedicated:
+
+`FIN 321 — EUR Receivable FX Hedging Project`
+
+section linking the Stage 2 through Stage 5 artifacts and the final recommendation.
+
+---
+
+# Stage 5 — Final Prompt Log Update
+
+## Prompt 72 — Add Today's AI GitHub Prompts to the Prompt Log
+
+**Date:** 2026-08-14  
+**Tool:** ChatGPT  
+**Prompt Type:** Final documentation update  
+**Status:** Exact prompt
+
+### Prompt
+
+> update the prompt log so that it includes all of the prompts I have written today for the AI Github project
+
+### Purpose
+
+The existing prompt log covered the earlier stages of the project but needed to be extended through the Stage 5 capstone work.
+
+### Stage 5 Work Added
+
+The updated prompt log now documents AI use for:
+
+- Stage 5 assignment interpretation
+- Fresh independent LLM execution
+- Raw LLM output
+- Workbook comparison
+- Discrepancy diagnosis
+- Reconciliation
+- Hand verification
+- Formula and input-source explanation
+- Validation-document drafting
+- GitHub Markdown troubleshooting
+- Spec retrospective
+- Executive recommendation memo
+- README portfolio polish
+- Final prompt-log completion
+
+---
+
+# Stage 5 AI-Assisted Workflow Summary
+
+The Stage 5 workflow was:
+
+**Independent LLM Run → Compare → Diagnose → Hand Verify → Reconcile → Retrospective → Recommend → Format → Polish Repository**
+
+The most important Stage 5 finding was that the independent LLM used the Stage 4 market-data memo correctly, while the saved workbook being reviewed still contained Stage 2 placeholder values.
+
+This produced a genuine validation discrepancy rather than a manufactured one.
+
+The call option also revealed a specification ambiguity because the specification retained call variables but did not clearly define the call as a primary hedge for the EUR receivable.
+
+The final core calculations independently verified were:
+
+- Forward hedge: `$5,248,326.06`
+- Money-market hedge: `$5,248,326.06`
+- Put hedge at 5% EUR depreciation: `$5,073,676.09`
+
+The final executive analysis recommends the forward hedge for the €4,500,000 EUR receivable, subject to obtaining an executable market forward quote.
+
+---
+
+# Updated AI Use Statement
+
+ChatGPT was used throughout Stage 5 as an independent analysis tool, validation assistant, documentation assistant, and GitHub formatting assistant.
+
+The independent LLM output was not accepted automatically.
+
+Its calculations were compared with the Excel workbook, differences were diagnosed, the major hedge calculations were independently recomputed using named-range notation and calculator arithmetic, specification weaknesses were documented, and the recommendation was made only after reconciliation.
+
+AI was also used to prepare and format the final GitHub portfolio artifacts.
+
+The complete project workflow is now:
+
+**Frame → Specify → Build → Audit → Populate Market Data → Independently Analyze → Compare → Diagnose → Hand Verify → Reconcile → Recommend → Document → Polish → Commit**
